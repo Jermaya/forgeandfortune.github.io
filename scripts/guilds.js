@@ -1,5 +1,5 @@
 "use strict";
-
+//console.log(GuildManager.guilds[0].lvl/60)
 const GuildManager = {
     guilds : [],
     lastClicked : "G001",
@@ -34,6 +34,7 @@ class Guild {
         Object.assign(this, props);
         this.rep = 0;
         this.lvl = 0;
+        this.max_lvl = 60;
         this.order = [];
     }
     createSave() {

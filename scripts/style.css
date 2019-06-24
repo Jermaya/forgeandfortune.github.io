@@ -2423,7 +2423,7 @@ Rarities
     flex-grow: 1;
 }
 
-.progressRecipe, .progressWorker, .progressHero, .progressOverall {
+.progressRecipe, .progressWorker, .progressHero, .progressOverall, .progressGuild0,.progressGuild1,.progressGuild2,.progressGuild3,.progressGuild4 {
     display: flex;
     flex-direction: column;
     align-items: center;

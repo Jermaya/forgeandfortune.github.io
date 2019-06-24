@@ -37,6 +37,22 @@ function refreshProgress() {
     if (perkPercent === "100.00") $pbPerk.addClass("Completed");
     tally += ActionLeague.perkCount();
     max += ActionLeague.perkMaxCount();
+    
+    //CUSTOM GUILD TRACKER
+    $.each(GuildManager.guilds, function(key,guild){
+        $("#plGuild"+key).html(guild.lvl+"/"+guild.max_lvl);
+        tally += guild.lvl;
+        max += guild.max_lvl;
+        let guildPercent = ((guild.lvl / guild.max_lvl)*100).toFixed(2);
+        let $pbGuild = $("#pbGuild"+key);
+        $pbGuild.css('width', guildPercent+"%");
+        if (guildPercent === "100.00") $pbGuild.addClass("Completed");
+    });
+    //const perkPercent = (ActionLeague.perkCount()/ActionLeague.perkMaxCount()*100).toFixed(2);
+    //$pbPerk.css('width', perkPercent+"%");
+    //if (perkPercent === "100.00") $pbPerk.addClass("Completed");
+    //tally += ActionLeague.perkCount();
+    //max += ActionLeague.perkMaxCount();
 
     const overallPercent = tally/max;
     if (overallPercent === 1 && achievementStats.endTime === -1) achievementStats.endTime = Date.now();
